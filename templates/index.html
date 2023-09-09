@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    input{
+      margin: 10px;  
+    }
+    body{
+        background-color: rosybrown;
+        color: black;
+    }
+    a{
+        margin: 5px;
+    }
+</style>
+<body>
+    <h1>Hello {{ title }}</h1>
+    <a href='{{ link }}'>HOME</a>
+    {% if user.is_authenticated %}
+    <a href="app2/logout">Logout</a>
+    {% else %}
+    <a href="app2/signup">Signup</a>
+    <a href="app2/login">Login</a>
+    {% endif %}
+    <form action="expression" method="post">
+        {% csrf_token %} 
+        <!--to prevent the attack as we are using post now also get is by default so mention method post
+        since i didn't want to show the text input in url hence used post
+    post is secured
+the url won't contain things-->
+        Input1:<input type="text" name="text1">
+        Input2:<input type="text" name="text2">
+        <hr>
+        <input type="submit">
+    </form>
+    {% for msg in messages %}
+    <p>{{ msg }}</p>
+    {% endfor %}
+</body>
+</html>

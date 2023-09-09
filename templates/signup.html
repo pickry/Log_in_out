@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+</head>
+<style>
+    body{
+        text-align: center;
+        background-color: #B2FFFF;
+        color: #1F305E;
+    }
+    input{
+        margin: 5px;
+        border-radius: 3px;
+        border: #7CB9E8 solid 2px
+    }
+    form{
+        border: #002244 solid 4px;
+
+    }
+</style>
+<body>
+    <h1>Register</h1>
+    <form action="" method="POST"><!--technically the action should have the name of the view function but here it 
+    redirects to repeated page for submit hence when removed action things work right-->
+        {% csrf_token %}
+        User:<input type="text" name="username"><br>
+        First Name:<input type="text" name="firstname"><br>
+        Last Name:<input type="text" name="lastname"><br>
+        Email:<input type="email" name="email"><br>
+        Password<input type="password" name="password"><br>
+        <input type="submit">
+        <!--problem is how does this page know to go to sign up function of views?-->
+    </form>
+</body>
+</html>
