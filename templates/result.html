@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Result</title>
+</head>
+<style>
+    body{
+        margin: 10px;
+    }
+    div{
+        text-align: center;
+        box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+        background-color: honeydew;
+    }
+</style>
+<body>
+    <h1>Result</h1>
+    <div>
+        {{context}}
+        Marks Obtained : {{score}} / 10 <br>
+        Incorrect : {{incorrect}} <br>
+        Correct : {{correct}} <br>
+    </div>
+    <a href="http://127.0.0.1:8000/">HOME</a>
+</body>
+</html>

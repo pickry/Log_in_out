@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from django.contrib import messages
 from django.contrib.auth.models import User
+from .models import employee
 from django.contrib import auth
 # Create your views here.
 def signup(request):
@@ -36,3 +37,17 @@ def logout(request):
     auth.logout(request)
     messages.success(request, "logged out")
     return redirect('/')
+
+def employee_table(request):
+    if request.method == 'POST':
+        name = request.POST['name']
+        post = request.POST['post']
+        income = request.POST['salary']
+        status = request.POST['status']
+        # k = employee.objects.values()
+        # print(k)
+        
+        e = employee.objects.create(name = name, post = post, salary = income, status = status)
+        e.save()
+        return redirect('/')
+    return render(request, 'employee.html')

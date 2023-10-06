@@ -22,9 +22,11 @@
     <a href='{{ link }}'>HOME</a>
     {% if user.is_authenticated %}
     <a href="app2/logout">Logout</a>
+    <a href="app3/quiz">Attempt Quiz</a>
     {% else %}
     <a href="app2/signup">Signup</a>
     <a href="app2/login">Login</a>
+    <br><p>Login to attempt Quiz</p>
     {% endif %}
     <form action="expression" method="post">
         {% csrf_token %} 
@@ -40,5 +42,8 @@ the url won't contain things-->
     {% for msg in messages %}
     <p>{{ msg }}</p>
     {% endfor %}
+    <hr>
+    <a href="app2/employee_table" style="border: maroon solid 3px">Employee Fill</a>
+    
 </body>
 </html>
